@@ -2,10 +2,10 @@
   This Quiz app is created using the only basics of Flutter Framework for example state management,Widgets creations and manipulation. It works seamlessly on the mobile phones.
   This app offers fun and engaging quizzes across multiple categories and helps users test their knowledge with instant results.
 # Features
-  -It comes with 5 categories
-  -Total 600 questions across 5 categories(120 per category)
-  -Provides you 10 randomly chosen questions based on the category you opted.
-  -Light weight and mobile-friendly application
+  - It comes with 5 categories
+  - Total 600 questions across 5 categories(120 per category)
+  - Provides you 10 randomly chosen questions based on the category you opted.
+  - Light weight and mobile-friendly application
 # Note
   IPhone Users need to build the app using my files in MacOS laptops or desktops using Xcode to make the application compactible of IPhones
 ## Getting Started
