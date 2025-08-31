@@ -33,6 +33,12 @@ class _QuizState extends State<Quiz> {
     activeScreen = Background(switchScreen);
   }
 
+  void reset() {
+    setState(() {
+      activeScreen = Background(switchScreen);
+    });
+  }
+
   void start(String cat) {
     setState(() {
       if (cat == 'Movies') {
@@ -46,7 +52,7 @@ class _QuizState extends State<Quiz> {
       } else {
         quiz = History().getQuestions();
       }
-      activeScreen = QuestionScreen(quiz, choseAnswer, index);
+      activeScreen = QuestionScreen(quiz, choseAnswer, reset, index);
     });
   }
 
@@ -62,7 +68,7 @@ class _QuizState extends State<Quiz> {
     setState(() {
       intialbg = Colors.white;
       if (quiz.length != index) {
-        activeScreen = QuestionScreen(quiz, choseAnswer, index);
+        activeScreen = QuestionScreen(quiz, choseAnswer, reset, index);
       } else {
         activeScreen = ResultScreen(quiz, ans, switchScreen);
         ans = [];

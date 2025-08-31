@@ -5,9 +5,16 @@ import 'package:airq/models/question.dart';
 import 'package:airq/models/answer_button.dart';
 
 class QuestionScreen extends StatefulWidget {
-  const QuestionScreen(this.quiz, this.fact, this.index, {super.key});
+  const QuestionScreen(
+    this.quiz,
+    this.fact,
+    this.reset,
+    this.index, {
+    super.key,
+  });
   final List<Question> quiz;
   final void Function(String text) fact;
+  final void Function() reset;
   final int index;
   @override
   State<StatefulWidget> createState() {
@@ -35,16 +42,27 @@ class _QuestionScreenState extends State<QuestionScreen> {
         margin: const EdgeInsets.fromLTRB(20, 120, 20, 110),
         alignment: Alignment.center,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Center(child: Headings('$tra off $totques')),
-            const SizedBox(height: 170),
-            BodyText(currques.text, 19, FontWeight.w600),
-            const SizedBox(height: 20),
-            ...currques.getQuestions().map((item) {
-              return AnswerButton(item, widget.fact);
-            }),
+            ElevatedButton(
+              onPressed: widget.reset,
+              child: Icon(Icons.restart_alt, color: Colors.black),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color.fromARGB(255, 93, 173, 226),
+              ),
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Center(child: Headings('$tra off $totques')),
+                const SizedBox(height: 170),
+                BodyText(currques.text, 19, FontWeight.w600),
+                const SizedBox(height: 20),
+                ...currques.getQuestions().map((item) {
+                  return AnswerButton(item, widget.fact);
+                }),
+              ],
+            ),
           ],
         ),
       ),
